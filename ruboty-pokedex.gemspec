@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Makoto Ito"]
   spec.email         = ["millionlives@gmail.com"]
 
-  spec.summary       = "TODO: Write a short summary, because RubyGems requires one."
-  spec.description   = "TODO: Write a longer description or delete this line."
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "rubory plugin for pokedex"
+  spec.description   = "ruboty plugin for pokedex"
+  spec.homepage      = "https://github.com/M9T0/ruboty-pokedex"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
