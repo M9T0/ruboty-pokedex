@@ -6,7 +6,7 @@ module Ruboty
             on(/pokedex\s+(?<number>\d+).*/, name: 'num', description: 'search from number')
 
             def num(msg)
-                Ruboty::Actions::Pokedex.new(msg).call
+                Ruboty::Pokedex::Actions::Pokedex.new(msg).call
             end
         end
     end
