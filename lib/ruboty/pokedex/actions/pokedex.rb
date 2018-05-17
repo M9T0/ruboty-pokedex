@@ -3,11 +3,11 @@ require 'faraday_middleware'
 
 module Ruboty
     module Actions
-        class Pokedex < Base
+        class Pokedex < Ruboty::Actions::Base
             POKEDEX_API = 'http://pokeapi.co/api/v2/'
 
-            def search_name
-                keyword = message.body.find(/\b(P?<name>\w+)$/)
+            def call
+                keyword = message[:num]
                 resp = connection.get(POKEDEX_API + "pokemon-species/#{keyword}")
 
                 id = resp.body['id']
@@ -19,11 +19,7 @@ module Ruboty
                 end
                 res = "No.#{id} #{name[0]}\n#{desc[0]}"
 
-                res
-            end
-
-            def search_num
-                message.body
+                message.reply(res)
             end
 
             def connection
