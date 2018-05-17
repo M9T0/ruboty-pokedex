@@ -26,7 +26,7 @@ module Ruboty
                     desc = json['flavor_text_entries'].select do |x|
                         x['language']['name'] == "ja"
                     end
-                    res = "No.#{id} #{name[0]}\n#{desc[0]['flavor_text']}"
+                    res = "No.#{id} #{name[0]['name']}\n#{desc[0]['flavor_text']}"
 
                     message.reply(res)
                 end
