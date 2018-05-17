@@ -5,9 +5,11 @@ module Ruboty
             on(/(?<number>\d+)/, name: 'num', description: 'search from number')
 
             def name(msg)
+                msg.reply('name')
             end
 
             def num(msg)
+                msg.reply('num')
             end
         end
     end
