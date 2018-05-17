@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "rubory plugin for pokedex"
   spec.description   = "ruboty plugin for pokedex"
-  spec.homepage      = "https://github.com/M9T0/ruboty-pokedex"
+  spec.homepage      = ""
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
