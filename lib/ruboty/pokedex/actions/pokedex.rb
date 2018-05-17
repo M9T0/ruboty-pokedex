@@ -21,10 +21,10 @@ module Ruboty
 
                     id = json['id']
                     name = json['names'].select do |x|
-                        x.language.name == "ja"
+                        x['language']['name'] == "ja"
                     end
                     desc = json['flavor_text_entries'].select do |x|
-                        x.language.name = "ja"
+                        x['language']['name'] == "ja"
                     end
                     res = "No.#{id} #{name[0]}\n#{desc[0]}"
 
