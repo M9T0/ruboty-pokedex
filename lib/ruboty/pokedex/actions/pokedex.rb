@@ -16,7 +16,6 @@ module Ruboty
                     resp = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') { |http|
                         http.request(req)
                     }
-                    puts resp
                     json = JSON.parse(resp.body)
 
                     id = json['id']
