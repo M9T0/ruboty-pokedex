@@ -1,3 +1,5 @@
+require "ruboty/pokedex/actions/pokedex"
+
 module Ruboty
     module Handlers
         class Pokedex < Base
