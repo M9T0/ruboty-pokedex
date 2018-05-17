@@ -1,15 +1,15 @@
 module Ruboty
     module Handlers
         class Pokedex < Base
-            on(/(?<keyword>\w+)/, name: 'name', description: 'search from name')
-            on(/(?<number>\d+)/, name: 'num', description: 'search from number')
+            on(/\b(?<keyword>\w+)\b/, name: 'name', description: 'search from name')
+            on(/\b(?<number>\d+\b)/, name: 'num', description: 'search from number')
 
             def name(msg)
-                msg.reply('name')
+                Ruboty::Actions::Pokedex.new(msg)
             end
 
             def num(msg)
-                msg.reply('num')
+                Ruboty::Actions::Pokedex.new(msg)
             end
         end
     end
