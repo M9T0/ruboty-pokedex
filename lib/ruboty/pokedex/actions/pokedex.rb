@@ -7,7 +7,7 @@ module Ruboty
             POKEDEX_API = 'http://pokeapi.co/api/v2/'
 
             def call
-                keyword = message[:num]
+                keyword = message[:number]
                 resp = connection.get(POKEDEX_API + "pokemon-species/#{keyword}")
 
                 id = resp.body['id']
