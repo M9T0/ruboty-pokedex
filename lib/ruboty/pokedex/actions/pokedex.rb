@@ -19,11 +19,11 @@ module Ruboty
                     puts resp
                     json = JSON.parse(resp.body)
 
-                    id = json.body['id']
-                    name = json.body['names'].select do |x|
+                    id = json['id']
+                    name = json['names'].select do |x|
                         x.language.name == "ja"
                     end
-                    desc = json.body['flavor_text_entries'].select do |x|
+                    desc = json['flavor_text_entries'].select do |x|
                         x.language.name = "ja"
                     end
                     res = "No.#{id} #{name[0]}\n#{desc[0]}"
