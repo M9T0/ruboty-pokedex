@@ -2,6 +2,8 @@ require 'net/http'
 require 'uri'
 require 'json'
 
+require "ruboty/pokedex/data"
+
 module Ruboty
     module Pokedex
         module Actions
@@ -14,7 +16,15 @@ module Ruboty
                 end
 
                 def call
-                    keyword = message[:number]
+                    if (message.has_key?(:number))
+                        keyword = message[:number]
+                    else
+                        if Ruboty::Pokedex::Data:NAME_MAP.has_key?(message[:name])
+                            keyword = Ruboty::Pokedex::Data:NAME_MAP[message[:name]]
+                        else
+                            message.reply('')
+                        end
+                    end
 
                     json = get(POKEDEX_API + "pokemon-species/#{keyword}/")
                     id = json['id']
