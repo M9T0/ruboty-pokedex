@@ -1,6 +1,6 @@
 require 'net/http'
-require 'uri'
 require 'json'
+require 'uri'
 
 require "ruboty/pokedex/data"
 
@@ -18,7 +18,8 @@ module Ruboty
                 def call
                     keyword = message[:number]
 
-                    json = get(POKEDEX_API + "pokemon-species/#{keyword}/")
+                    root = get(POKEDEX_API + "pokemon/#{keyword}/")
+                    json = get(root['species']['url'])
                     id = json['id']
                     name = json['names'].find do |x|
                         x['language']['name'] == "ja" ||
@@ -39,6 +40,7 @@ module Ruboty
                             res += "#{item['flavor_text']}\n～ポケットモンスター #{ver['name']} より～\n\n"
                         end
                     end
+                    res += root['sprites']['front_default']
 
                     message.reply(res)
                 end
