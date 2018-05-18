@@ -32,7 +32,7 @@ module Ruboty
                             x['language']['name'] == "ja" ||
                             x['language']['name'] == "ja-Hrkt"
                         end
-                        res += "#{item['flavor_text']}\n～ポケットモンスター #{ver['name']} より～\n"
+                        res += "#{item['flavor_text']}\n～ポケットモンスター #{ver[0]['name']} より～\n"
                     end
 
                     message.reply(res)
