@@ -15,7 +15,7 @@ module Ruboty
                     end
                     keyword = Ruboty::Pokedex::Data::NAME_MAP[name]
 
-                    super.search(keyword)
+                    search(keyword)
                 end
             end
         end
