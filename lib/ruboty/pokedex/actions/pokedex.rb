@@ -18,21 +18,22 @@ module Ruboty
 
                     json = get(POKEDEX_API + "pokemon-species/#{keyword}/")
                     id = json['id']
-                    name = json['names'].select do |x|
-                        x['language']['name'] == "ja"
+                    name = json['names'].find do |x|
+                        x['language']['name'] == "ja" ||
+                        x['language']['name'] == "ja-Hrkt"
                     end
                     desc = json['flavor_text_entries'].select do |x|
                         x['language']['name'] == "ja" ||
                         x['language']['name'] == "ja-Hrkt"
                     end
-                    res = "No.#{id} #{name[0]['name']}\n"
+                    res = "No.#{id} #{name['name']}\n"
                     desc.each do |item|
                         vers = get(item['version']['url'])
-                        ver = vers['names'].select do |x|
+                        ver = vers['names'].find do |x|
                             x['language']['name'] == "ja" ||
                             x['language']['name'] == "ja-Hrkt"
                         end
-                        res += "#{item['flavor_text']}\n～ポケットモンスター #{ver[0]['name']} より～\n"
+                        res += "#{item['flavor_text']}\n～ポケットモンスター #{ver['name']} より～\n"
                     end
 
                     message.reply(res)
