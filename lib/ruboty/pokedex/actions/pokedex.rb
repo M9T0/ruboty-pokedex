@@ -17,7 +17,10 @@ module Ruboty
 
                 def call
                     keyword = message[:number]
+                    search(keyword)
+                end
 
+                def search(keyword)
                     root = get(POKEDEX_API + "pokemon/#{keyword}/")
                     json = get(root['species']['url'])
                     id = json['id']
@@ -43,6 +46,7 @@ module Ruboty
                     res += root['sprites']['front_default']
 
                     message.reply(res)
+
                 end
 
                 def get(url)
