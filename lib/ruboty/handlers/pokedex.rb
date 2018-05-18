@@ -1,4 +1,5 @@
 require "ruboty/pokedex/actions/pokedex"
+require "ruboty/pokedex/actions/pokedex2"
 
 module Ruboty
     module Handlers
