@@ -22,11 +22,17 @@ module Ruboty
                         x['language']['name'] == "ja"
                     end
                     desc = json['flavor_text_entries'].select do |x|
-                        x['language']['name'] == "ja"
+                        x['language']['name'] == "ja" ||
+                        x['language']['name'] == "ja-Hrkt"
                     end
                     res = "No.#{id} #{name[0]['name']}\n"
                     desc.each do |item|
-                        res += "#{item['flavor_text']}\n～#{item['version']['name']}～\n"
+                        vers = get(item['version']['url'])
+                        ver = vers['names'].select do |x|
+                            x['language']['name'] == "ja" ||
+                            x['language']['name'] == "ja-Hrkt"
+                        end
+                        res += "#{item['flavor_text']}\n～ポケットモンスター #{ver['name']} より～\n"
                     end
 
                     message.reply(res)
