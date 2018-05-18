@@ -11,7 +11,7 @@ module Ruboty
             end
 
             def name(msg)
-                Ruboty::Pokedex::Actions::Pokedex.new(msg).call
+                Ruboty::Pokedex::Actions::Pokedex2.new(msg).call
             end
         end
     end

@@ -7,7 +7,7 @@ require "ruboty/pokedex/data"
 module Ruboty
     module Pokedex
         module Actions
-            class Pokedex < Ruboty::Actions::Base
+            class Pokedex2 < Ruboty::Actions::Base
                 NAMESPACE = 'POKEDEX'
                 POKEDEX_API = 'https://pokeapi.co/api/v2/'
 
@@ -16,7 +16,11 @@ module Ruboty
                 end
 
                 def call
-                    keyword = message[:number]
+                    name = message[:name]
+                    if !Ruboty::Pokedex::Data::NAME_MAP.has_key?(name)
+                        return
+                    end
+                    keyword = Ruboty::Pokedex::Data::NAME_MAP[name]
 
                     json = get(POKEDEX_API + "pokemon-species/#{keyword}/")
                     id = json['id']
