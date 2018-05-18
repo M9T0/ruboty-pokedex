@@ -10,7 +10,7 @@ module Ruboty
                 POKEDEX_API = 'https://pokeapi.co/api/v2/'
 
                 def brain
-                    robot.brain.data[NAMESPACE] ||= {}
+                    message.robot.brain.data[NAMESPACE] ||= {}
                 end
 
                 def call
