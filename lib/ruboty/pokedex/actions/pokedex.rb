@@ -16,10 +16,10 @@ module Ruboty
                 end
 
                 def call
-                    if message[:number] != nil
+                    if message.include?(:number)
                         keyword = message[:number]
                     else
-                        if Ruboty::Pokedex::Data:NAME_MAP[message[:name]] != nil
+                        if Ruboty::Pokedex::Data:NAME_MAP.include?(message[:name])
                             keyword = Ruboty::Pokedex::Data:NAME_MAP[message[:name]]
                         else
                             message.reply('')
