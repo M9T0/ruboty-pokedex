@@ -1,4 +1,4 @@
-module Roboty
+module Ruboty
     module Pokedex
         class Data
             NAME_MAP = {
