@@ -23,20 +23,18 @@ module Ruboty
                         x['language']['name'] == "ja-Hrkt"
                     end
                     desc = json['flavor_text_entries'].select do |x|
-                        x['language']['name'] == "ja" ||
-                        x['language']['name'] == "ja-Hrkt"
+                        x['language']['name'] == "ja"
                     end
-                    res = "No.#{id} #{name['name']}\n"
+                    res = "No.#{id} #{name['name']}\n\n"
                     desc.each do |item|
                         vers = get(item['version']['url'])
                         ver = vers['names'].find do |x|
-                            x['language']['name'] == "ja" ||
                             x['language']['name'] == "ja-Hrkt"
                         end
                         if ver == nil
-                            res += "#{item['flavor_text']}\n～ポケットモンスター #{item['version']['name']} より～\n"
+                            res += "#{item['flavor_text']}\n～ポケットモンスター #{item['version']['name']} より～\n\n"
                         else
-                            res += "#{item['flavor_text']}\n～ポケットモンスター #{ver['name']} より～\n"
+                            res += "#{item['flavor_text']}\n～ポケットモンスター #{ver['name']} より～\n\n"
                         end
                     end
 
