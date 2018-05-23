@@ -1,5 +1,7 @@
 require "ruboty"
 require "ruboty/pokedex/version"
 require "ruboty/pokedex/data"
-require "ruboty/pokedex/actions/pokedex"
+require "ruboty/pokedex/actions/searchBase"
+require "ruboty/pokedex/actions/searchFromNumber"
+require "ruboty/pokedex/actions/searchFromName"
 require "ruboty/handlers/pokedex"

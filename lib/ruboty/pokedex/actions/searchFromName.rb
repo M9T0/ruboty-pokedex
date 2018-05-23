@@ -2,12 +2,12 @@ require 'net/http'
 require 'uri'
 require 'json'
 
-require "ruboty/pokedex/data"
+require "searchBase"
 
 module Ruboty
     module Pokedex
         module Actions
-            class Pokedex2 < Ruboty::Pokedex::Actions::Pokedex
+            class SearchFromName < Ruboty::Pokedex::Actions::SearchBase
                 def call
                     name = message[:name]
                     if !Ruboty::Pokedex::Data::NAME_MAP.has_key?(name)

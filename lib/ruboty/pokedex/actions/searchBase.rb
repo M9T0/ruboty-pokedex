@@ -7,7 +7,7 @@ require "ruboty/pokedex/data"
 module Ruboty
     module Pokedex
         module Actions
-            class Pokedex < Ruboty::Actions::Base
+            class SearchBase < Ruboty::Actions::Base
                 NAMESPACE = 'POKEDEX'
                 POKEDEX_API = 'https://pokeapi.co/api/v2/'
 
@@ -16,8 +16,7 @@ module Ruboty
                 end
 
                 def call
-                    keyword = message[:number]
-                    search(keyword)
+                    raise "Called abstract method: call"
                 end
 
                 def search(keyword)
@@ -32,6 +31,7 @@ module Ruboty
                         x['language']['name'] == "ja"
                     end
                     res = "No.#{id} #{name['name']}\n\n"
+                    res += "#{root['sprites']['front_default']}\n\n"
                     desc.each do |item|
                         vers = get(item['version']['url'])
                         ver = vers['names'].find do |x|
@@ -43,7 +43,6 @@ module Ruboty
                             res += "#{item['flavor_text']}\n～ポケットモンスター #{ver['name']} より～\n\n"
                         end
                     end
-                    res += root['sprites']['front_default']
 
                     message.reply(res)
 
